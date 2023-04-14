@@ -1,0 +1,942 @@
+{
+	"info": {
+		"_postman_id": "49bb0c16-eefc-4a6f-8624-c8204d0b3bac",
+		"name": "rocket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5568974"
+	},
+	"item": [
+		{
+			"name": "usr",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uname",
+									"value": "admin1",
+									"type": "text"
+								},
+								{
+									"key": "upass",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{prefix}}/api/login",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODEzNTI2NTI5MjcsInVzZXJfaWQiOjF9fQ.uGRo_eLHNd9_c4v69n-hVVyCcEn4TQ4nUVI4EiI5HpDm7mdvp8FZrkQV9uwLHUzr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uid\":1,\r\n    \"upass\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/usr/reset-password",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"usr",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODEzNTI2NTI5MjcsInVzZXJfaWQiOjF9fQ.uGRo_eLHNd9_c4v69n-hVVyCcEn4TQ4nUVI4EiI5HpDm7mdvp8FZrkQV9uwLHUzr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"admin_id\":20170001,\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/usr/1",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"usr",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "list",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODEzODA0OTI5NjksInVzZXJfaWQiOjF9fQ.ECkhA6V1ygGLJSbeghISYb_OcviukMX6Avl6WzLeaGFi7caEwra5jLRPOKCzPS0k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_no\": 1,\r\n    \"page_size\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book/find",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id or name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"秘密\",\r\n    \"page\": {\r\n        \"page_no\": 1,\r\n        \"page_size\": 10\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book/find_id_name/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"find_id_name",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-by-id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prefix}}/api/book/find-by-id/20",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"find-by-id",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-by-id Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prefix}}/api/book/find-by-id/20",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"find-by-id",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{prefix}}/api/book/remove/20",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"remove",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bname\": \"画的秘密5\",\r\n    \"author\": \"马克-安托万·马修 \",\r\n    \"publish\": \"北京联合出版公司·后浪出版公司\",\r\n    \"isbn\": \"9787550265608\",\r\n    \"introduction\": \"一本关于友情的疗伤图像小说，直击人内心最为隐秘的情感。 一部追寻艺术的纸上悬疑电影，揭示命运宇宙中奇诡的真相。 ★ 《画的秘密》荣获欧洲第二大漫画节“瑞士谢尔漫画节最佳作品奖”。 作者曾两度夺得安古兰国际漫画节重要奖项。 ★ 《画的秘密》是一部罕见的、结合了拼贴、镜像、3D等叙事手法的实验型漫画作品。作者巧妙地调度光线、纬度、时间、记忆，在一个悬念重重又温情治愈的故事中，注入了一个有关命运的哲学议题。\",\r\n    \"language\": \"中文\",\r\n    \"price\": 60.0,\r\n    \"pub_time\": null,\r\n    \"class_id\": 9,\r\n    \"pressmark\": 13,\r\n    \"state\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book/add/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bid\": 9,\r\n    \"bname\": \"画的秘密\",\r\n    \"author\": \"马克-安托万·马修 \",\r\n    \"publish\": \"北京联合出版公司·后浪出版公司\",\r\n    \"isbn\": \"9787550265608\",\r\n    \"introduction\": \"一本关于友情的疗伤图像小说，直击人内心最为隐秘的情感。 一部追寻艺术的纸上悬疑电影，揭示命运宇宙中奇诡的真相。 ★ 《画的秘密》荣获欧洲第二大漫画节“瑞士谢尔漫画节最佳作品奖”。 作者曾两度夺得安古兰国际漫画节重要奖项。 ★ 《画的秘密》是一部罕见的、结合了拼贴、镜像、3D等叙事手法的实验型漫画作品。作者巧妙地调度光线、纬度、时间、记忆，在一个悬念重重又温情治愈的故事中，注入了一个有关命运的哲学议题。\",\r\n    \"language\": \"中文\",\r\n    \"price\": 60.0,\r\n    \"pub_time\": null,\r\n    \"class_id\": 9,\r\n    \"pressmark\": 13,\r\n    \"state\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book/edit/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book-class",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cname\": \"历史\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book-class/add/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book-class",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_no\": 1,\r\n    \"page_size\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book-class/list/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book-class",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book-class/find-by-id/1",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book-class",
+								"find-by-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cid\": 1,\r\n    \"cname\": \"马克思主义\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book-class/edit",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book-class",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_no\": 1,\r\n    \"page_size\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/book-class/remove/100",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"book-class",
+								"remove",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lend-record",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rid\": 1,\r\n    \"book_id\": 1,\r\n    \"reader_id\": 2,\r\n    \"lend_date\": null,\r\n    \"back_date\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/lend-record/add/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"lend-record",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_no\": 1,\r\n    \"page_size\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/lend-record/list/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"lend-record",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/lend-record/find-by-id/1",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"lend-record",
+								"find-by-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rid\": 1,\r\n    \"book_id\": 1,\r\n    \"reader_id\": 2,\r\n    \"lend_date\": null,\r\n    \"back_date\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/lend-record/edit",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"lend-record",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/lend-record/remove/100",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"lend-record",
+								"remove",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reader",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODE0ODUyMzcxMjAsInVzZXJfaWQiOjF9fQ.ziB9-zJeGmjUO6_hmXi-gYow2B5kVdUUhVGCiWrG_UKC7xpluEIfxv7N60Nb3qKi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rname\": \"张华\",\r\n    \"rpass\": \"123456\",\r\n    \"state\": 1,\r\n    \"gender\": \"男\",\r\n    \"birth\": null,\r\n    \"address\": \"天津市\",\r\n    \"phone\": \"12345678900\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/reader/add/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"reader",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODEzNzQ4MzAwOTksInVzZXJfaWQiOjF9fQ.B2ogyZ8qGj2MmiyhELpWVxHRkiYvjtm9k7rPVLsk9OB3Wr1r9LwoLp7LXStzQL0z",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_no\": 1,\r\n    \"page_size\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/reader/list/",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"reader",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/reader/find-by-id/1",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"reader",
+								"find-by-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjEyMywidXNlcl9pZCI6MX19.5On4ndRaSjY3SL9duwPM9nAsi9eSI-DOiKYCfQ-MHqGwv8JjAM5a0gtMV58bS8tZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rid\": 1,\r\n    \"rname\": \"张华\",\r\n    \"rpass\": \"123456\",\r\n    \"state\": 1,\r\n    \"gender\": \"男\",\r\n    \"birth\": null,\r\n    \"address\": \"天津市\",\r\n    \"phone\": \"12345678900\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/reader/edit",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"reader",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJ1c2VyIjp7InVzZXJfbmFtZSI6ImFkbWluMSIsInVwX3RpbWUiOjE2ODEzNTI2NTI5MjcsInVzZXJfaWQiOjF9fQ.uGRo_eLHNd9_c4v69n-hVVyCcEn4TQ4nUVI4EiI5HpDm7mdvp8FZrkQV9uwLHUzr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prefix}}/api/reader/remove/100",
+							"host": [
+								"{{prefix}}"
+							],
+							"path": [
+								"api",
+								"reader",
+								"remove",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prefix}}/api/health",
+					"host": [
+						"{{prefix}}"
+					],
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "variable_key",
+			"value": ""
+		}
+	]
+}
