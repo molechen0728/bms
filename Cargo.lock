@@ -128,6 +128,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "bms"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "hmac",
+ "jwt",
+ "md5",
+ "reqwest",
+ "rocket",
+ "rocket_db_pools",
+ "sha2",
+ "sqlx",
+ "validator",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -304,22 +320,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.13",
-]
-
-[[package]]
-name = "demo4"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "hmac",
- "jwt",
- "md5",
- "reqwest",
- "rocket",
- "rocket_db_pools",
- "sha2",
- "sqlx",
- "validator",
 ]
 
 [[package]]

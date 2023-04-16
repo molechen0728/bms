@@ -1,9 +1,9 @@
 pub(crate) mod book;
 pub(crate) mod book_class;
+pub(crate) mod health;
 pub(crate) mod lend_record;
 pub(crate) mod reader;
 pub(crate) mod usr;
-pub(crate) mod health;
 
 use hmac::{Hmac, Mac};
 use jwt::{AlgorithmType, Header, Token, VerifyWithKey};

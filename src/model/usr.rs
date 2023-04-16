@@ -9,7 +9,9 @@ use sqlx::FromRow;
 #[serde(crate = "rocket::serde")]
 pub struct Usr {
     pub(crate) uid: Option<i32>,
+    #[field(validate = len(1..))]
     pub(crate) uname: Option<String>,
+    #[field(validate = len(1..))]
     pub(crate) upass: Option<String>,
 }
 

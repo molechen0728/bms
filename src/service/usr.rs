@@ -15,7 +15,7 @@ pub(crate) async fn login(mut db: Connection<db::Conn>, mut a: Usr, up_time: i64
     let mut tab = model::usr::Table::new(&mut db);
     if let Some(p) = &a.upass {
         a.upass = Some(format!("{:x}", md5::compute(&p)));
-        info!("{:?}",a.upass);
+        info!("{:?}", a.upass);
     }
     match tab.find_with_id_and_password(a).await {
         Ok(v) => {
@@ -47,7 +47,7 @@ pub(crate) async fn login(mut db: Connection<db::Conn>, mut a: Usr, up_time: i64
     }
 }
 
-pub(crate) async fn edit_password(mut db: Connection<db::Conn>,mut a: Usr) -> Resp<u64> {
+pub(crate) async fn edit_password(mut db: Connection<db::Conn>, mut a: Usr) -> Resp<u64> {
     let mut tab = model::usr::Table::new(&mut db);
     if let Some(p) = &a.upass {
         a.upass = Some(format!("{:x}", md5::compute(&p)));

@@ -2,6 +2,7 @@ mod db;
 mod model;
 mod router;
 mod service;
+mod tests;
 mod utils;
 
 use model::now;
@@ -9,9 +10,20 @@ use rocket::Request;
 use rocket::{catch, catchers, launch, routes};
 use rocket_db_pools::Database;
 
+use crate::router::User;
+
 #[catch(404)]
 fn not_found(req: &Request) -> String {
     format!("Sorry, '{}' is not a valid path.", req.uri())
+}
+
+#[catch(422)]
+async fn login_param_invalid(req: &Request<'_>) -> Option<String> {
+    match req.guard::<User>().await {
+        rocket::outcome::Outcome::Success(_) => None,
+        rocket::outcome::Outcome::Failure(_) => Some(format!("User name and password are both required.")),
+        rocket::outcome::Outcome::Forward(_) => None,
+    }
 }
 
 #[catch(401)]
@@ -25,14 +37,14 @@ async fn rocket() -> _ {
     rocket::build()
         .attach(db::Conn::init())
         .manage(ts)
-        .register("/", catchers![not_found, unauthorized])
+        .register("/", catchers![not_found, unauthorized, login_param_invalid])
         .mount(
             "/api",
             routes![
                 router::health::health,
                 router::usr::login,
                 router::usr::reset_password,
-                router::usr::admin,
+                router::usr::find,
                 router::book::find_with_page,
                 router::book::find_by_id_or_name,
                 router::book::add,

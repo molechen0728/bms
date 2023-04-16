@@ -21,7 +21,7 @@ pub(crate) async fn reset_password(db: Connection<db::Conn>, a: Json<Usr>, _u: U
 }
 
 #[get("/usr/<id>")]
-pub(crate) async fn admin(db: Connection<db::Conn>, id: i32, _u: User) -> Resp<Usr> {
+pub(crate) async fn find(db: Connection<db::Conn>, id: i32, _u: User) -> Resp<Usr> {
     info!("{:?}", id);
     service::usr::find_with_id(db, id).await
 }

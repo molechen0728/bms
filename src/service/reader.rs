@@ -1,6 +1,7 @@
 use crate::{
     db,
-    model::{self, reader::Reader}, utils::delay,
+    model::{self, reader::Reader},
+    utils::delay,
 };
 use rocket::{error, log::private::info};
 use rocket_db_pools::Connection;
