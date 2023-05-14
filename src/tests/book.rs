@@ -1,8 +1,14 @@
+#[allow(unused_imports)]
 use super::{Ret, _rocket};
+#[allow(unused_imports)]
 use crate::router;
+#[allow(unused_imports)]
 use crate::tests::_get_token;
+#[allow(unused_imports)]
 use rocket::http::Header;
+#[allow(unused_imports)]
 use rocket::local::asynchronous::Client;
+#[allow(unused_imports)]
 use rocket::uri;
 
 #[rocket::async_test]

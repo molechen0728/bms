@@ -1,2 +1,2 @@
 [default.databases.sqlx_postgres]
-url = "postgres://postgres:molechen@localhost/demo0"
+url = "postgres://postgres:123456@172.17.0.3/mydb"
